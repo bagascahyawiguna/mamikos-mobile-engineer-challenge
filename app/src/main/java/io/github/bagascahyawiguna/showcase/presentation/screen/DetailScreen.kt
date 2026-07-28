@@ -45,8 +45,8 @@ import coil.compose.AsyncImage
 import io.github.bagascahyawiguna.showcase.common.util.ShareUtils
 import io.github.bagascahyawiguna.showcase.common.util.stripHtml
 import io.github.bagascahyawiguna.showcase.domain.model.TvShow
+import io.github.bagascahyawiguna.showcase.presentation.component.DetailLoadingView
 import io.github.bagascahyawiguna.showcase.presentation.component.ErrorView
-import io.github.bagascahyawiguna.showcase.presentation.component.LoadingView
 import io.github.bagascahyawiguna.showcase.presentation.state.DetailUiState
 import io.github.bagascahyawiguna.showcase.presentation.viewmodel.DetailViewModel
 import java.util.Locale
@@ -116,7 +116,7 @@ fun DetailScreen(
     ) { innerPadding ->
         when (val state = uiState) {
             is DetailUiState.Loading -> {
-                LoadingView(modifier = Modifier.padding(innerPadding))
+                DetailLoadingView(modifier = Modifier.padding(innerPadding))
             }
             is DetailUiState.Error -> {
                 ErrorView(
