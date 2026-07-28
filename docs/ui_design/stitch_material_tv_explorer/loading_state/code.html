@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ShowCase - Loading</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e2e2e8",
+                    "primary-container": "#006495",
+                    "on-background": "#191c20",
+                    "rating-gold": "#FFB800",
+                    "surface-container-high": "#e7e8ee",
+                    "on-error-container": "#93000a",
+                    "primary": "#004b71",
+                    "on-surface": "#191c20",
+                    "surface-container-low": "#f3f3f9",
+                    "secondary": "#50606e",
+                    "inverse-on-surface": "#f0f0f6",
+                    "secondary-fixed": "#d4e4f5",
+                    "secondary-container": "#d1e2f2",
+                    "on-tertiary-fixed": "#211534",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#0d1d29",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#b8c8d9",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d9dadf",
+                    "primary-fixed-dim": "#8fcdff",
+                    "primary-fixed": "#cbe6ff",
+                    "tertiary-fixed-dim": "#d1bfe8",
+                    "on-secondary-container": "#546473",
+                    "background": "#f9f9ff",
+                    "on-surface-variant": "#40484f",
+                    "surface": "#f9f9ff",
+                    "tertiary-container": "#66587b",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#006495",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-primary": "#8fcdff",
+                    "on-primary-fixed-variant": "#004b71",
+                    "on-tertiary-container": "#e3d1fa",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed-variant": "#394956",
+                    "inverse-surface": "#2e3035",
+                    "surface-variant": "#DEE3EB",
+                    "on-tertiary-fixed-variant": "#4e4162",
+                    "outline": "#707880",
+                    "surface-container": "#ededf3",
+                    "tertiary": "#4e4162",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c0c7d0",
+                    "on-primary-fixed": "#001e30",
+                    "on-primary-container": "#b7ddff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ecdcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "component-gap-xs": "4px",
+                    "component-gap-sm": "8px",
+                    "gutter": "16px",
+                    "component-gap-md": "16px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px"
+            },
+            "fontFamily": {
+                    "label-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "headline-lg": [
+                            "Manrope"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Manrope"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.1px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "26px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-sm": [
+                            "11px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-sm": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .skeleton-shimmer {
+            background: linear-gradient(to right, 
+                theme('colors.surface-container-high') 0%, 
+                theme('colors.surface-container-highest') 50%, 
+                theme('colors.surface-container-high') 100%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -100% 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+        
+        body {
+            /* Prevent scrolling during loading */
+            overflow: hidden;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md text-body-md antialiased md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface shadow-sm md:hidden">
+<button class="text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">movie_filter</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">ShowCase</h1>
+<button class="text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+</header>
+<!-- Desktop Top Nav (Hybrid of TopAppBar and BottomNavBar labels) -->
+<header class="hidden md:flex fixed top-0 left-0 w-full z-50 justify-between items-center px-margin-desktop h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">movie_filter</span>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">ShowCase</h1>
+</div>
+<nav class="flex items-center gap-8">
+<a class="flex items-center gap-2 text-primary font-label-lg text-label-lg relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-1 after:bg-primary after:rounded-t-full" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+                Home
+            </a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">explore</span>
+                Browse
+            </a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bookmarks</span>
+                Watchlist
+            </a>
+</nav>
+<button class="text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+</header>
+<!-- Main Content Area - Skeleton Loading State -->
+<main class="pt-20 md:pt-24 px-margin-mobile md:px-margin-desktop max-w-[840px] mx-auto w-full flex flex-col gap-component-md pb-8">
+<!-- Grid Skeleton -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-component-md">
+<!-- Card 1 -->
+<div class="flex flex-col gap-component-sm">
+<div class="w-full aspect-[2/3] rounded-lg skeleton-shimmer"></div>
+<div class="w-3/4 h-4 rounded skeleton-shimmer"></div>
+<div class="w-1/2 h-3 rounded skeleton-shimmer"></div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-component-sm">
+<div class="w-full aspect-[2/3] rounded-lg skeleton-shimmer"></div>
+<div class="w-4/5 h-4 rounded skeleton-shimmer"></div>
+<div class="w-2/3 h-3 rounded skeleton-shimmer"></div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-component-sm">
+<div class="w-full aspect-[2/3] rounded-lg skeleton-shimmer"></div>
+<div class="w-3/4 h-4 rounded skeleton-shimmer"></div>
+<div class="w-1/2 h-3 rounded skeleton-shimmer"></div>
+</div>
+<!-- Card 4 -->
+<div class="flex flex-col gap-component-sm">
+<div class="w-full aspect-[2/3] rounded-lg skeleton-shimmer"></div>
+<div class="w-5/6 h-4 rounded skeleton-shimmer"></div>
+<div class="w-2/3 h-3 rounded skeleton-shimmer"></div>
+</div>
+<!-- Card 5 -->
+<div class="flex flex-col gap-component-sm">
+<div class="w-full aspect-[2/3] rounded-lg skeleton-shimmer"></div>
+<div class="w-3/4 h-4 rounded skeleton-shimmer"></div>
+<div class="w-1/2 h-3 rounded skeleton-shimmer"></div>
+</div>
+<!-- Card 6 -->
+<div class="flex flex-col gap-component-sm">
+<div class="w-full aspect-[2/3] rounded-lg skeleton-shimmer"></div>
+<div class="w-4/5 h-4 rounded skeleton-shimmer"></div>
+<div class="w-2/3 h-3 rounded skeleton-shimmer"></div>
+</div>
+</div>
+</main>
+</body></html>

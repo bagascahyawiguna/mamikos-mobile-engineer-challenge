@@ -1,0 +1,213 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TV Shows</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e2e2e8",
+                        "primary-container": "#006495",
+                        "on-background": "#191c20",
+                        "rating-gold": "#FFB800",
+                        "surface-container-high": "#e7e8ee",
+                        "on-error-container": "#93000a",
+                        "primary": "#004b71",
+                        "on-surface": "#191c20",
+                        "surface-container-low": "#f3f3f9",
+                        "secondary": "#50606e",
+                        "inverse-on-surface": "#f0f0f6",
+                        "secondary-fixed": "#d4e4f5",
+                        "secondary-container": "#d1e2f2",
+                        "on-tertiary-fixed": "#211534",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#0d1d29",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#b8c8d9",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d9dadf",
+                        "primary-fixed-dim": "#8fcdff",
+                        "primary-fixed": "#cbe6ff",
+                        "tertiary-fixed-dim": "#d1bfe8",
+                        "on-secondary-container": "#546473",
+                        "background": "#f9f9ff",
+                        "on-surface-variant": "#40484f",
+                        "surface": "#f9f9ff",
+                        "tertiary-container": "#66587b",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#006495",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-primary": "#8fcdff",
+                        "on-primary-fixed-variant": "#004b71",
+                        "on-tertiary-container": "#e3d1fa",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#394956",
+                        "inverse-surface": "#2e3035",
+                        "surface-variant": "#DEE3EB",
+                        "on-tertiary-fixed-variant": "#4e4162",
+                        "outline": "#707880",
+                        "surface-container": "#ededf3",
+                        "tertiary": "#4e4162",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c0c7d0",
+                        "on-primary-fixed": "#001e30",
+                        "on-primary-container": "#b7ddff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ecdcff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "component-gap-xs": "4px",
+                        "component-gap-sm": "8px",
+                        "gutter": "16px",
+                        "component-gap-md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Inter"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased font-body-md text-body-md bg-background min-h-screen flex flex-col pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface dark:bg-surface bg-surface-container-low dark:bg-surface-container-low shadow-sm transition-shadow duration-300" id="topAppBar">
+<div class="flex items-center gap-4">
+
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">ShowCase</h1>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-[840px] mx-auto px-margin-mobile py-component-gap-md md:py-margin-desktop md:px-margin-desktop">
+<div class="mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-2">TV Shows</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Discover what everyone is watching right now.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-component-gap-md">
+<!-- Card 1 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-surface-container mb-component-gap-sm shadow-sm transition-shadow group-hover:shadow-md">
+<img alt="Show Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A highly detailed, cinematic poster for a sci-fi thriller series. A lone astronaut stands on a desolate, red desert planet under a sky dominated by a massive, swirling nebula. Lighting is dramatic, casting long shadows. The mood is tense and mysterious, aligning with a premium modern media platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM2EUVjBNygBBspx3WKn94Ca_8Dnq5jBnQUjPU8DpolJj0-RtVWg8FlTqKEWq4VCOLBWTk_Lv-CGFLdmxHmjMxf1_AHp226JPKwwLhzHzIWus2zb18oQkXxd8wEV4keKAv8dvfHOgjLGryoGCQhrZiGqArFBKPS6rfhaZibDkvN9CE6_geqHiHmbKucztUiz_naEnpprmlo6gUpuUQooO62BAzbdurTUWOLc0gH7KR3C5MwnLm-lKCm65N7GLOj0RRkHmXHdcQnYAk">
+<div class="absolute top-2 right-2 bg-inverse-surface/90 backdrop-blur-md rounded-full flex items-center shadow-md px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-rating-gold text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-on-secondary font-bold">8.9</span>
+</div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-1">The Martian Chronicles</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1 mt-component-gap-xs">Sci-Fi • Drama</p>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-surface-container mb-component-gap-sm shadow-sm transition-shadow group-hover:shadow-md">
+<img alt="Show Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A highly detailed, cinematic poster for a neo-noir detective series. A silhouetted figure stands in a rain-slicked alleyway illuminated by flickering neon signs in vibrant pinks and blues. Reflections puddle on the ground. The mood is gritty and atmospheric, fitting a high-end streaming service interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXYsEaFCF_jv9nUfcDuCBnR89glwZ7RLq0kkmJ1aQSgI0eUJWC5YfyCibmBGYnmQK_V9csIZyzrDjsfYDE9_G6Xmhi1xA1sw2pfimZYwTU-Kn22Eon6K3xkNNyv_Hi3euIAp72D3wnjAhdGCePA_kU7ZAICWKM8MNhkUIJ3cTwLAcM-xF8cIjeRQRokoaB-AXy9qek8dH9sfCEvBuYXEd31ixBcP_QHD5PnGYbXPPaV3mrOeeoR4KEHHkqcyOebCAP5oVtAg-jWgnB">
+<div class="absolute top-2 right-2 bg-inverse-surface/90 backdrop-blur-md rounded-full flex items-center shadow-md px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-rating-gold text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-on-secondary font-bold">9.2</span>
+</div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-1">Neon Shadows</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1 mt-component-gap-xs">Crime • Thriller</p>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-surface-container mb-component-gap-sm shadow-sm transition-shadow group-hover:shadow-md">
+<img alt="Show Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A highly detailed, cinematic poster for a historical drama series. A lavishly dressed queen stands before an ornate, gilded throne room bathed in warm, golden afternoon sunlight filtering through tall windows. The mood is regal, tense, and politically charged, designed for a modern UI layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfl22hETrby5r5ZLXB6CpifB-L4Ed5c_oa3BbwjrxhqH1OlozceCRNjcKUVrtwgG9YMPjUUj0VM5_HR0kSuXIXoiJV8H0a1jrpDKUxzp9v4H61yuzfCFKmnYOPrFApyCcNFNwwigJQjy52a9wT4V2h2-7y3udhqvkNMaLCyI4AyxCNZOFNDOX3Nc3zxjPqZm2Mmfvlb5ZQTNzKN72XHxJsZXCSx1Bezv4pfYP_ZtJXUkMZVdbV-mWVW1jid8O1K9Mw_YahOY1-xYsp">
+<div class="absolute top-2 right-2 bg-inverse-surface/90 backdrop-blur-md rounded-full flex items-center shadow-md px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-rating-gold text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-on-secondary font-bold">8.5</span>
+</div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-1">Crown of Thorns</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1 mt-component-gap-xs">Drama • History</p>
+</article>
+<!-- Card 4 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-surface-container mb-component-gap-sm shadow-sm transition-shadow group-hover:shadow-md">
+<img alt="Show Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A highly detailed, cinematic poster for an animated fantasy series. A young warrior holding a glowing, ethereal sword stands on a cliff edge overlooking a floating city in the clouds. Bright, vibrant colors with a sense of wonder and epic adventure, tailored for a premium media browser." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHIhmgaa6v6hx8WyF3hBV9_dr6yDmBBWx2xU5Sjk_NMDgyXnLBYckXYJ2EHaXw6Tn8fNATF64SeqtNJTvvR1jmFlFXbzaXQH-KSFzsJ9wQokLeUUUiT6b9ZTQiOjcTq6Eeeg6_8oAa66r1zi2ubOyVPekU0uofr_S2TrGA9rMng6WlIjUPs0ww44bwR-s28d7Ld4fWfyyfd1SZCGGVJSfjSylvCutHe3P1NPUm556qQixp5ZAi9xJwFJw742oGvNvU1UG_TL7wB7GQ">
+<div class="absolute top-2 right-2 bg-inverse-surface/90 backdrop-blur-md rounded-full flex items-center shadow-md px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-rating-gold text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-on-secondary font-bold">9.5</span>
+</div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-1">Aethelgard</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1 mt-component-gap-xs">Animation • Fantasy</p>
+</article>
+<!-- Card 5 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-surface-container mb-component-gap-sm shadow-sm transition-shadow group-hover:shadow-md">
+<img alt="Show Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A highly detailed, cinematic poster for a contemporary comedy series. Four diverse friends are squeezed onto a small couch in a brightly lit, messy urban apartment. The lighting is high-key and cheerful. The mood is lighthearted and relatable, presented in a clean, modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPlMakb_r-cor9gvkkxmZ6zN_Jqc7yVVfrvxYCMuwQAX-w6PdVEVhm4FlmFqE-BjdJu_u-0K7W4K8bsfG_rOd7gzhvxaoQ4JICU7Iwqtjhu6nm0yRFCRJMo5EadTdJRoUN1UmAZilr-jHHnzz7PyIoQ2sDUbILh1Z82nCU86hRT9byczpjiLp8XbE2mOa-xCRL5cHwLzB3FI7va6sOp-JFF97ldoN0HqxA1Pxl9X4YsDxw2qHR4-VzPS_Hdk6x_qMvAPs3DDCkx6kQ">
+<div class="absolute top-2 right-2 bg-inverse-surface/90 backdrop-blur-md rounded-full flex items-center shadow-md px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-rating-gold text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-on-secondary font-bold">7.8</span>
+</div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-1">City Limits</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1 mt-component-gap-xs">Comedy • Sitcom</p>
+</article>
+<!-- Card 6 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-surface-container mb-component-gap-sm shadow-sm transition-shadow group-hover:shadow-md">
+<img alt="Show Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A highly detailed, cinematic poster for a nature documentary series. A breathtaking close-up of a snow leopard's face against a stark, snow-covered mountain backdrop. The lighting is crisp and natural, highlighting textures. The mood is awe-inspiring and majestic, perfect for a high-end streaming catalog." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAom9xvQ7Q-1WL_mierlGLTYIOtvYmCvXlwn3dwZBFrOcM0ihYjnklnUznuaRSZaWfVk23G60xHaSKGjtDe3raLNGRginc5lXLtXgfhRbycsFkeHHwLO7LqE7Px5tcMzDKuwMqkYO4IYjgUIc5d3i28qZAjAG4v97PyHvo3PX5spyPtzVnyYDnTFdXdy5bcoSG5ny3w2xcxI4BCnztfC3MyA86_aCH30tRSXf7Y2DnCk60b2ILxyBACqBVfPncxJs2I_svl7Rjy2Rmz">
+<div class="absolute top-2 right-2 bg-inverse-surface/90 backdrop-blur-md rounded-full flex items-center shadow-md px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-rating-gold text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg text-on-secondary font-bold">9.8</span>
+</div>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface line-clamp-1">Planet Wild</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1 mt-component-gap-xs">Documentary • Nature</p>
+</article>
+</div>
+</main>
+<script>
+        // Subtle scroll shadow effect for TopAppBar
+        window.addEventListener('scroll', () => {
+            const appBar = document.getElementById('topAppBar');
+            if (window.scrollY > 10) {
+                appBar.classList.add('shadow-md');
+                appBar.classList.remove('shadow-sm');
+            } else {
+                appBar.classList.add('shadow-sm');
+                appBar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+
+</body></html>
