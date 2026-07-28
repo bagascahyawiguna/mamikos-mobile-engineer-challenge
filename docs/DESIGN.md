@@ -300,3 +300,37 @@ The application follows these principles:
 - Reusability
 - Accessibility
 - User-first design
+
+---
+
+# Final UI Reference
+
+The UI design has been finalized using **Google Stitch** based on:
+
+- `docs/PRD.md`
+- `docs/DESIGN.md`
+
+These mockups serve as the visual reference for the Jetpack Compose implementation.
+
+## Available Screens
+
+- Home Screen
+- Detail Screen
+- Loading State
+- Empty State
+- Error State
+
+## Design Assets
+
+```
+docs/ui_design/stitch_material_tv_explorer/
+├── home_screen/
+├── detail_screen/
+├── loading_state/
+├── empty_state/
+└── error_state/
+```
+
+Implementation should follow these mockups while still adhering to Material Design 3 and the architecture described in this repository.
+
+If there is any conflict between the mockups and the Product Requirement Document (PRD), the PRD takes precedence.
