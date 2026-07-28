@@ -31,7 +31,7 @@ fun DetailLoadingView(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(16f / 10f)
+                .aspectRatio(2f / 3f)
                 .clip(RoundedCornerShape(16.dp))
                 .shimmerBackground()
         )

@@ -10,6 +10,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
@@ -95,5 +96,32 @@ class HomeViewModelTest {
         val state = viewModel.uiState.value
         assertTrue(state is HomeUiState.Success)
         coVerify(exactly = 2) { repository.getShows(0) }
+    }
+
+    @Test
+    fun `loadNextPage appends new shows to existing list`() = runTest {
+        // Given
+        val show1 = TvShow(id = 1, name = "Show 1", mediumImageUrl = null, originalImageUrl = null, ratingAverage = 8.0, premiered = "2020", summary = "Summary 1")
+        val show2 = TvShow(id = 2, name = "Show 2", mediumImageUrl = null, originalImageUrl = null, ratingAverage = 7.5, premiered = "2021", summary = "Summary 2")
+
+        coEvery { repository.getShows(0) } returns Result.success(listOf(show1))
+        coEvery { repository.getShows(1) } returns Result.success(listOf(show2))
+
+        val viewModel = HomeViewModel(repository)
+        assertTrue(viewModel.uiState.value is HomeUiState.Success)
+
+        // When
+        viewModel.loadNextPage()
+
+        // Then
+        val state = viewModel.uiState.value
+        assertTrue(state is HomeUiState.Success)
+        val successState = state as HomeUiState.Success
+        assertEquals(2, successState.shows.size)
+        assertEquals(listOf(show1, show2), successState.shows)
+        assertFalse(successState.isLoadingNextPage)
+        assertFalse(successState.isEndReached)
+        coVerify(exactly = 1) { repository.getShows(0) }
+        coVerify(exactly = 1) { repository.getShows(1) }
     }
 }

@@ -7,6 +7,8 @@ import io.github.bagascahyawiguna.showcase.domain.model.TvShow
 import io.github.bagascahyawiguna.showcase.domain.repository.TvShowRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 
 class TvShowRepositoryImpl(
@@ -28,8 +30,28 @@ class TvShowRepositoryImpl(
     override suspend fun getShowDetail(id: Int): Result<TvShow> {
         return withContext(ioDispatcher) {
             try {
-                val dto = api.getShowDetail(id)
-                Result.success(dto.toDomainModel())
+                val showDto = api.getShowDetail(id)
+                coroutineScope {
+                    val seasonsDeferred = async { runCatching { api.getSeasons(id) }.getOrDefault(emptyList()) }
+                    val episodesDeferred = async { runCatching { api.getEpisodes(id) }.getOrDefault(emptyList()) }
+                    val castDeferred = async { runCatching { api.getCast(id) }.getOrDefault(emptyList()) }
+
+                    val seasonsDto = seasonsDeferred.await()
+                    val episodesDto = episodesDeferred.await()
+                    val castDto = castDeferred.await()
+
+                    val totalSeasons = seasonsDto.size.takeIf { it > 0 }
+                    val totalEpisodes = episodesDto.size.takeIf { it > 0 }
+                    val topCast = castDto.mapNotNull { it.toDomainModel() }.take(5)
+
+                    Result.success(
+                        showDto.toDomainModel(
+                            totalSeasons = totalSeasons,
+                            totalEpisodes = totalEpisodes,
+                            cast = topCast
+                        )
+                    )
+                }
             } catch (e: Exception) {
                 Result.failure(e)
             }

@@ -17,12 +17,16 @@ import java.io.IOException
 
 class TvShowRepositoryImplTest {
 
-    private val api: TvMazeApi = mockk()
+    private val api: TvMazeApi = mockk(relaxed = true)
     private val testDispatcher = StandardTestDispatcher()
     private lateinit var repository: TvShowRepositoryImpl
 
     @Before
     fun setUp() {
+        coEvery { api.getSeasons(any()) } returns emptyList()
+        coEvery { api.getEpisodes(any()) } returns emptyList()
+        coEvery { api.getCast(any()) } returns emptyList()
+
         repository = TvShowRepositoryImpl(
             api = api,
             ioDispatcher = testDispatcher

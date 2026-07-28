@@ -8,5 +8,8 @@ data class TvShow(
     val originalImageUrl: String?,
     val ratingAverage: Double?,
     val premiered: String?,
-    val summary: String?
+    val summary: String?,
+    val totalSeasons: Int? = null,
+    val totalEpisodes: Int? = null,
+    val cast: List<CastMember> = emptyList()
 )
