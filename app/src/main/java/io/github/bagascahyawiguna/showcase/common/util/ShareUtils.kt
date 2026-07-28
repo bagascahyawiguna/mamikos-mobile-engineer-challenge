@@ -3,25 +3,24 @@ package io.github.bagascahyawiguna.showcase.common.util
 import android.content.Context
 import android.content.Intent
 import io.github.bagascahyawiguna.showcase.domain.model.TvShow
-import java.util.Locale
 
 object ShareUtils {
 
     fun shareTvShow(context: Context, show: TvShow) {
         val stringBuilder = StringBuilder()
 
+        // 1. Show Title
         stringBuilder.append(show.name)
 
-        show.ratingAverage?.let { rating ->
-            val formattedRating = String.format(Locale.US, "%.1f", rating)
-            stringBuilder.append("\n\n⭐ Rating: $formattedRating")
+        // 2. Show Summary (Sanitized from HTML)
+        val plainSummary = show.summary.stripHtml()
+        if (plainSummary.isNotBlank()) {
+            stringBuilder.append("\n\n").append(plainSummary)
         }
 
-        show.premiered?.let { premiered ->
-            if (premiered.isNotBlank()) {
-                stringBuilder.append("\n\n📅 Premiered: $premiered")
-            }
-        }
+        // 3. Official TVMaze URL (API provided url or fallback)
+        val tvMazeUrl = show.url ?: "https://www.tvmaze.com/shows/${show.id}"
+        stringBuilder.append("\n\n").append(tvMazeUrl)
 
         val sendIntent = Intent().apply {
             action = Intent.ACTION_SEND

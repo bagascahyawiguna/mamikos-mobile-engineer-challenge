@@ -7,6 +7,7 @@ fun TvShowDto.toDomainModel(): TvShow {
     return TvShow(
         id = id,
         name = name,
+        url = url,
         mediumImageUrl = image?.medium,
         originalImageUrl = image?.original,
         ratingAverage = rating?.average,

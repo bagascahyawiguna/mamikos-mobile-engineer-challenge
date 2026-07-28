@@ -9,6 +9,8 @@ data class TvShowDto(
     val id: Int,
     @SerialName("name")
     val name: String,
+    @SerialName("url")
+    val url: String? = null,
     @SerialName("image")
     val image: ImageDto? = null,
     @SerialName("rating")
