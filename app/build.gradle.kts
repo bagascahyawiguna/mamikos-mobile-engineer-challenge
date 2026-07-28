@@ -6,7 +6,11 @@ plugins {
 
 android {
     namespace = "io.github.bagascahyawiguna.showcase"
-    compileSdk = 36
+    compileSdk {
+        version = release(36) {
+            minorApiLevel = 1
+        }
+    }
 
     defaultConfig {
         applicationId = "io.github.bagascahyawiguna.showcase"
@@ -33,6 +37,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
