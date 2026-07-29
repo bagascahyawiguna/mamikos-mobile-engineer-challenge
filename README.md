@@ -192,7 +192,16 @@ Given additional time, the following enhancements could be incorporated into the
 
 ---
 
+---
+
 ## Walkthrough Video
 
-Video:
-(TBA)
+A complete walkthrough demonstrating the application, including the required technical assessment topics:
+
+- Application demo (including Loading, Error, Success, Retry, and bonus features)
+- Explanation of the project file I am most proud of
+- One example of an AI-generated mistake and how it was identified and corrected
+
+**Video:**
+
+https://drive.google.com/drive/folders/1Gkhl3GCTGaJAC7ss_fNPiMX4paLFTBVi?usp=drive_link
